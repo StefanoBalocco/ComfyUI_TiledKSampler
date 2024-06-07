@@ -105,7 +105,7 @@ def sample_common(model, add_noise, noise_seed, steps, cfg, sampler_name, schedu
     device = comfy.model_management.get_torch_device()
     samples = latent_image["samples"]
     noise_mask = latent_image["noise_mask"] if "noise_mask" in latent_image else None
-    force_full_denoise = return_with_leftover_noise == "enable"
+    force_full_denoise = return_with_leftover_noise
     if not add_noise:
         noise = torch.zeros(samples.size(), dtype=samples.dtype, layout=samples.layout, device="cpu")
     else:
